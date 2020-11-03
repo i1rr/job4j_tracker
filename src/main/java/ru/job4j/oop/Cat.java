@@ -7,12 +7,31 @@ public class Cat {
         return voice;
     }
 
+    private String food;
+    private String name;
+
+    public void show() {
+        System.out.println(this.name + "'s favourite food is " + this.food);
+    }
+
+    public void eat(String meat) {
+        this.food = meat;
+    }
+
+    public void giveNick(String name) {
+        this.name = name;
+    }
+
     public static void main(String[] args) {
 
-        Cat peppy = new Cat();
-        String say = peppy.sound();
-        System.out.println("Peppy says: " + say);
+        Cat gav = new Cat();
+        gav.giveNick("Gav");
+        gav.eat("Kotleta.");
+        gav.show();
 
-        Cat sparky = new Cat();
+        Cat black = new Cat();
+        black.giveNick("Black");
+        black.eat("Fish.");
+        black.show();
     }
 }
