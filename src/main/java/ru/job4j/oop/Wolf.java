@@ -6,6 +6,6 @@ public class Wolf {
     }
 
     public void tryEat(Ball ball) {
-        System.out.println("Wolf: I will eat you Kolobok\n");
+        System.out.println("Wolf: I will eat you Kolobok" + System.lineSeparator());
     }
 }

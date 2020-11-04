@@ -4,7 +4,7 @@ public class BallStory {
 
     public static void main(String[] args) {
 
-        System.out.println("Fairytale KOLOBOK\n");
+        System.out.println("Fairytale KOLOBOK" + System.lineSeparator());
 
         Ball kolobok = new Ball();
         Hare zayac = new Hare();
