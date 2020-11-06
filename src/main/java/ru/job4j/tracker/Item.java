@@ -6,6 +6,15 @@ public class Item {
     private int id;
     private String name;
 
+    public Item(){
+    }
+
+    public Item(int id) {
+    }
+
+    public Item(int id, String name) {
+    }
+
     private LocalDateTime created = LocalDateTime.now();
 
     public int getId() {
