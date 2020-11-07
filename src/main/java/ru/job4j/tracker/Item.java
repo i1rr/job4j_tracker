@@ -13,6 +13,8 @@ public class Item {
     }
 
     public Item(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     private LocalDateTime created = LocalDateTime.now();
@@ -34,4 +36,12 @@ public class Item {
     public LocalDateTime getCreated() { return created; }
 
 
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", created=" + created +
+                '}';
+    }
 }
