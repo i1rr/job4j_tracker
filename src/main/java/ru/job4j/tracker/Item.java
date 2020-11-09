@@ -10,6 +10,7 @@ public class Item {
     }
 
     public Item(int id) {
+        this.id = id;
     }
 
     public Item(int id, String name) {

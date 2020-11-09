@@ -1,8 +1,8 @@
 package ru.job4j.profession;
 
 public class Builder extends Engineer{
-    int shoutVolume;
-    boolean handsOutOfButt;
+    private int shoutVolume;
+    private boolean handsOutOfButt;
 
     public void build() {
     }

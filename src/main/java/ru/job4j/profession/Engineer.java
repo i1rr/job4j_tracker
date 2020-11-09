@@ -5,6 +5,26 @@ public class Engineer extends Profession {
     int averageSalary;
     boolean alcoholic;
 
+    public Engineer() {
+        super();
+    }
+
+    public Engineer(String name) {
+        super(name);
+    }
+
+    public Engineer(String name, String lastName) {
+        super(name, lastName);
+    }
+
+    public Engineer(String name, String lastName, String education) {
+        super(name, lastName, education);
+    }
+
+    public Engineer(String name, String lastName, String education, String birthday) {
+        super(name, lastName, education, birthday);
+    }
+
     public void develop() {
     }
 
