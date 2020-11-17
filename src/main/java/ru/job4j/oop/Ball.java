@@ -12,4 +12,10 @@ public class Ball {
         System.out.println("Kolobok: I hope..F#@!");
         System.out.println("RIP" + System.lineSeparator() + "THE END");
     }
+
+    public void evade(Hare zayac) {
+    }
+
+    public void evade(Wolf volk) {
+    }
 }
