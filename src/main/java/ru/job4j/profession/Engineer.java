@@ -2,8 +2,8 @@ package ru.job4j.profession;
 
 public class Engineer extends Profession {
 
-    int averageSalary;
-    boolean alcoholic;
+    private int averageSalary;
+    private boolean alcoholic;
 
     public Engineer() {
         super();

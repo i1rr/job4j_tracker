@@ -5,8 +5,9 @@ import java.time.LocalDateTime;
 public class Item {
     private int id;
     private String name;
+    private LocalDateTime created = LocalDateTime.now();
 
-    public Item(){
+    public Item() {
     }
 
     public Item(int id) {
@@ -22,11 +23,10 @@ public class Item {
         this.name = name;
     }
 
-    private LocalDateTime created = LocalDateTime.now();
-
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -34,19 +34,17 @@ public class Item {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public LocalDateTime getCreated() { return created; }
-
+    public LocalDateTime getCreated() {
+        return created;
+    }
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", created=" + created +
-                '}';
+        return "Item{" + "id=" + id + ", name='" + name + '\'' + ", created=" + created + '}';
     }
 }

@@ -6,35 +6,35 @@ public class Profession {
     private String education;
     private String birthday;
 
-    public Profession () {
+    public Profession() {
         this.name = "Unknown";
         this.lastName = "Unknown";
         this.education = "Unknown";
         this.birthday = "Unknown";
     }
 
-    public Profession (String name) {
+    public Profession(String name) {
         this.name = name;
         this.lastName = "Unknown";
         this.education = "Unknown";
         this.birthday = "Unknown";
     }
 
-    public Profession (String name, String lastName) {
+    public Profession(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
         this.education = "Unknown";
         this.birthday = "Unknown";
     }
 
-    public Profession (String name, String lastName, String education) {
+    public Profession(String name, String lastName, String education) {
         this.name = name;
         this.lastName = lastName;
         this.education = education;
         this.birthday = "Unknown";
     }
 
-    public Profession (String name, String lastName, String education, String birthday) {
+    public Profession(String name, String lastName, String education, String birthday) {
         this.name = name;
         this.lastName = lastName;
         this.education = education;
@@ -44,12 +44,15 @@ public class Profession {
     public String getName() {
         return name;
     }
+
     public String getLastName() {
         return lastName;
     }
+
     public String getEducation() {
         return education;
     }
+
     public String getBirthday() {
         return birthday;
     }

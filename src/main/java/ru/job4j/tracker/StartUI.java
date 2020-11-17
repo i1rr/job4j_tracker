@@ -56,15 +56,15 @@ public class StartUI {
 
     private void showMenu() {
         System.out.println("Menu.");
-        System.out.print("0. Add new Item" + System.lineSeparator() +
-                "1. Show all items" + System.lineSeparator() +
-                "2. Edit item" + System.lineSeparator() +
-                "3. Delete item" + System.lineSeparator() +
-                "4. Find item by Id" + System.lineSeparator() +
-                "5. Find items by name" + System.lineSeparator() +
-                "6. Exit Program" + System.lineSeparator() +
-                System.lineSeparator() +
-                "Select: ");
+        System.out.print("0. Add new Item" + System.lineSeparator()
+                + "1. Show all items" + System.lineSeparator()
+                + "2. Edit item" + System.lineSeparator()
+                + "3. Delete item" + System.lineSeparator()
+                + "4. Find item by Id" + System.lineSeparator()
+                + "5. Find items by name" + System.lineSeparator()
+                + "6. Exit Program" + System.lineSeparator()
+                + System.lineSeparator()
+                + "Select: ");
     }
 
     public static void main(String[] args) {

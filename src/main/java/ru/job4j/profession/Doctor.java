@@ -2,8 +2,8 @@ package ru.job4j.profession;
 
 public class Doctor extends Profession {
 
-    int bigSalary;
-    boolean badWriting;
+    private int bigSalary;
+    private boolean badWriting;
 
     public Doctor() {
         super();

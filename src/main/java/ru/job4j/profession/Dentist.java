@@ -1,9 +1,9 @@
 package ru.job4j.profession;
 
-public class Dentist extends Doctor{
+public class Dentist extends Doctor {
 
-    int teethCollection;
-    boolean pureEvil;
+    private int teethCollection;
+    private boolean pureEvil;
 
     public void drill() {
     }

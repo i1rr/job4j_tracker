@@ -1,6 +1,6 @@
 package ru.job4j.profession;
 
 public class Diagnosis {
-    String sickness;
-    int bill;
+    private String sickness;
+   private int bill;
 }

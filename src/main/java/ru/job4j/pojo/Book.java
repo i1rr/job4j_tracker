@@ -4,11 +4,24 @@ public class Book {
     private String name;
     private int pages;
 
+    public Book() {
+        this.name = "Name isn't available";
+        this.pages = -1;
+    }
+
+    public Book(String name) {
+        this.name = name;
+        this.pages = -1;
+    }
+
+    public Book(String name, int pages) {
+        this.name = name;
+        this.pages = pages;
+    }
+
     @Override
     public String toString() {
-        return "Книга: " + name + '\'' +
-                ", количество страниц: " + pages +
-                '}';
+        return "Книга: " + name + '\'' + ", количество страниц: " + pages + '}';
     }
 
     public String getName() {
@@ -24,21 +37,6 @@ public class Book {
     }
 
     public void setPages(int pages) {
-        this.pages = pages;
-    }
-
-    public Book() {
-        this.name = "Name isn't available";
-        this.pages = -1;
-    }
-
-    public Book(String name) {
-        this.name = name;
-        this.pages = -1;
-    }
-
-    public Book(String name, int pages) {
-        this.name = name;
         this.pages = pages;
     }
 }

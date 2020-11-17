@@ -2,13 +2,13 @@ package ru.job4j.oop;
 
 public class Cat {
 
+    private String food;
+    private String name;
+
     public String sound() {
         String voice = "Meow";
         return voice;
     }
-
-    private String food;
-    private String name;
 
     public void show() {
         System.out.println(this.name + "'s favourite food is " + this.food);

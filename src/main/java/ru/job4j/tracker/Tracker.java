@@ -21,8 +21,7 @@ public class Tracker {
         return newArray;
     }
 
-
-        public Item[] findByName (String key){
+        public Item[] findByName(String key) {
             Item[] temp = new Item[size];
             int tempCounter = 0;
             for (int i = 0; i < size; i++) {
@@ -32,20 +31,24 @@ public class Tracker {
                     tempCounter++;
                 }
             }
-            if(temp.length == 0) {
-                System.out.println(System.lineSeparator() + " === ERROR. Provided NAME does not exist === " + System.lineSeparator());
+            if (temp.length == 0) {
+                System.out.println(System.lineSeparator()
+                        + " === ERROR. Provided NAME does not exist === "
+                        + System.lineSeparator());
             }
             return temp;
         }
 
-        public Item findById (int id){
+        public Item findById(int id) {
             int index = indexOf(id);
             System.out.println();
-            System.out.println(index != -1 ? items[index] : System.lineSeparator() + " === ERROR. Provided ID does not exist === " + System.lineSeparator());
+            System.out.println(index != -1 ? items[index] : System.lineSeparator()
+                    + " === ERROR. Provided ID does not exist === "
+                    + System.lineSeparator());
             return index != -1 ? items[index] : null;
         }
 
-        private int indexOf (int id){
+        private int indexOf(int id) {
             int rsl = -1;
             for (int i = 0; i < size; i++) {
                 if (items[i].getId() == id) {
@@ -56,7 +59,7 @@ public class Tracker {
             return rsl;
         }
 
-        public boolean replace (int id, Item item){
+        public boolean replace(int id, Item item) {
             int index = indexOf(id);
             boolean rsl = index != -1;
             if (rsl) {
@@ -64,11 +67,13 @@ public class Tracker {
                 item.setId(id);
             }
             System.out.println();
-            System.out.println(rsl ? System.lineSeparator() + " === Record UPDATED === " + System.lineSeparator() : System.lineSeparator() + " === ERROR. Provided ID does not exist === " + System.lineSeparator());
+            System.out.println(rsl ? System.lineSeparator() + " === Record UPDATED === "
+                    + System.lineSeparator() : System.lineSeparator()
+                    + " === ERROR. Provided ID does not exist === " + System.lineSeparator());
             return rsl;
         }
 
-        public boolean delete (int id){
+        public boolean delete(int id) {
             int index = indexOf(id);
             boolean rsl = index != -1;
             if (rsl) {
@@ -77,7 +82,9 @@ public class Tracker {
                 size--;
             }
             System.out.println();
-            System.out.println(rsl ? System.lineSeparator() +  " === Record DELETED === " + System.lineSeparator() : System.lineSeparator() + " === ERROR. Provided ID does not exist === " + System.lineSeparator());
+            System.out.println(rsl ? System.lineSeparator() +  " === Record DELETED === "
+                    + System.lineSeparator() : System.lineSeparator()
+                    + " === ERROR. Provided ID does not exist === " + System.lineSeparator());
             return rsl;
         }
     }

@@ -49,7 +49,7 @@ public class Student {
         this.commencement = commencement;
     }
 
-    public void getDetails () {
+    public void getDetails() {
         System.out.println("Имя: " + this.getName());
         System.out.println("Фамилия: " + this.getLastName());
         System.out.println("Отчество: " + this.getPatronicName());
