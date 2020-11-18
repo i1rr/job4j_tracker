@@ -10,7 +10,8 @@ public class Tracker {
     public Item add(Item item) {
         item.setId(ids++);
         items[size++] = item;
-        return item;
+        System.out.println(System.lineSeparator() + " === Record UPDATED === ");
+        return items[size];
     }
 
     public Item[] findAll() {
@@ -64,7 +65,7 @@ public class Tracker {
             boolean rsl = index != -1;
             if (rsl) {
                 items[index] = item;
-                item.setId(id);
+                items[index].setId(id);
             }
             System.out.println();
             System.out.println(rsl ? System.lineSeparator() + " === Record UPDATED === "
