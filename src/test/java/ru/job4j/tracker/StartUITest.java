@@ -36,11 +36,11 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = new Item("hz");
         tracker.add(item);
-        String[] ebu4ijSlu4aj = {
+        String[] sorry = {
                 String.valueOf(item.getId())
         };
 
-        StartUI.deleteItem(new StubInput(ebu4ijSlu4aj), tracker);
+        StartUI.deleteItem(new StubInput(sorry), tracker);
         String[] emptyArray = new String[0];
         assertThat(tracker.findAll(), is(emptyArray));
 
