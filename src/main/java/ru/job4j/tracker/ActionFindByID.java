@@ -10,7 +10,11 @@ public class ActionFindByID implements UserAction {
     @Override
     public boolean execute(Input input, Tracker tracker) {
         int id = Integer.parseInt(input.askStr("Enter ID: "));
-        tracker.findById(id);
+        Item check = tracker.findById(id);
+        if (check == null) {
+            System.out.println("ERROR!" + System.lineSeparator()
+                    + "ID \"" + id + "\" doesn't exist.");
+        }
         return true;
     }
 }

@@ -12,7 +12,12 @@ public class ActionEdit implements UserAction {
         System.out.println();
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
-       tracker.replace(id, item);
+        if (tracker.replace(id, item)) {
+            System.out.println("Record updated.");
+        } else {
+            System.out.println("ERROR!" + System.lineSeparator()
+                    + "ID \"" + id + "\" doesn't exist.");
+        }
         return true;
     }
 }

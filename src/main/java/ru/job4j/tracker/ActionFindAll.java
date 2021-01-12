@@ -9,7 +9,10 @@ public class ActionFindAll implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-            tracker.findAll();
+        Item[] ehh = tracker.findAll();
+        if (ehh.length == 0) {
+            System.out.println("No record detected.");
+        }
         return true;
     }
 }
