@@ -10,8 +10,12 @@ public class ActionFindAll implements UserAction {
     @Override
     public boolean execute(Input input, Tracker tracker) {
         Item[] ehh = tracker.findAll();
-        if (ehh.length == 0) {
-            System.out.println("No record detected.");
+        if (ehh.length > 0) {
+            System.out.println(System.lineSeparator());
+            for (Item eh : ehh) {
+                System.out.println(eh);
+            }
+            System.out.println(System.lineSeparator());
         }
         return true;
     }

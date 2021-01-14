@@ -11,7 +11,13 @@ public class ActionCreate implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
-        tracker.add(item);
+        if (tracker.add(item)) {
+            System.out.println(System.lineSeparator() + "Record updated." + System.lineSeparator());
+        } else {
+            System.out.println(System.lineSeparator()
+                    + "Error. Data base is full, please contact IT department."
+                    + System.lineSeparator());
+        }
         return true;
     }
 }

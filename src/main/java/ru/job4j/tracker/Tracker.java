@@ -7,41 +7,43 @@ public class Tracker {
     private int ids = 1;
     private int size = 0;
 
-    public Item add(Item item) {
-        item.setId(ids++);
-        items[size++] = item;
-        System.out.println(System.lineSeparator() + " === Record UPDATED === ");
-        return items[size];
-    }
-
-    public Item[] findAll() {
-        Item[] newArray = Arrays.copyOf(items, size);
-        for (Item nA : newArray) {
-            System.out.println(nA);
+    //Create item
+    public boolean add(Item item) {
+       boolean rsl = false;
+        if (size < 99) {
+            item.setId(ids++);
+            items[size++] = item;
+            rsl = true;
         }
-        return newArray;
+        return rsl;
     }
 
-        public Item[] findByName(String key) {
-            Item[] temp = new Item[size];
-            int tempCounter = 0;
-            for (int i = 0; i < size; i++) {
-                if (items[i].getName().equals(key)) {
-                    temp[tempCounter] = items[i];
-                    System.out.println(items[i]);
-                    tempCounter++;
+    //Find all
+    public Item[] findAll() {
+        return Arrays.copyOf(items, size);
+    }
+
+    //Find by name
+    public Item[] findByName(String key) {
+        int arraySize = 0;
+        int counter = 0;
+        Item[] temp = new Item[size];
+        for (int i = 0; i < size; i++) {
+            if (items[i].getName().equals(key)) {
+                    temp[counter++] = items[i];
+                    arraySize++;
                 }
             }
-            return temp;
+            return Arrays.copyOf(temp, arraySize);
         }
 
+        //Find by ID
         public Item findById(int id) {
             int index = indexOf(id);
-            System.out.println();
-            System.out.println(index != -1 ? items[index] : System.lineSeparator());
             return index != -1 ? items[index] : null;
         }
 
+        //Find Index
         private int indexOf(int id) {
             int rsl = -1;
             for (int i = 0; i < size; i++) {
@@ -53,6 +55,7 @@ public class Tracker {
             return rsl;
         }
 
+        //Edit by ID
         public boolean replace(int id, Item item) {
             int index = indexOf(id);
             boolean rsl = index != -1;
@@ -63,6 +66,7 @@ public class Tracker {
             return rsl;
         }
 
+        //Delete by ID
         public boolean delete(int id) {
             int index = indexOf(id);
             boolean rsl = index != -1;

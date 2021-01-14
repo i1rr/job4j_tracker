@@ -10,10 +10,11 @@ public class ActionDelete implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         int id = Integer.parseInt(input.askStr("Enter item's ID: "));
         if (tracker.delete(id)) {
-            System.out.println("ID " + id + " deleted.");
+            System.out.println(System.lineSeparator() + "ID " + id + " deleted."
+                    + System.lineSeparator());
         } else {
-            System.out.println("ERROR!" + System.lineSeparator()
-                    + "ID \"" + id + "\" doesn't exist.");
+            System.out.println(System.lineSeparator() + "ERROR!" + System.lineSeparator()
+                    + "ID \"" + id + "\" doesn't exist." + System.lineSeparator());
         }
         return true;
     }

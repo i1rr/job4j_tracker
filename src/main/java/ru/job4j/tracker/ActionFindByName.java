@@ -12,7 +12,12 @@ public class ActionFindByName implements UserAction {
         String name = input.askStr("Enter name: ");
         Item[] ehh = tracker.findByName(name);
         if (ehh.length == 0) {
-           System.out.println("Such name doesn't exist.");
+           System.out.println(System.lineSeparator() + "Such name doesn't exist."
+                   + System.lineSeparator());
+        } else {
+            for (Item item : ehh) {
+                System.out.println(item);
+            }
         }
         return true;
     }
