@@ -8,14 +8,14 @@ public class Tracker {
     private int size = 0;
 
     //Create item
-    public boolean add(Item item) {
-       boolean rsl = false;
-        if (size < 99) {
+    public Item add(Item item) {
+        if (size < 100) {
             item.setId(ids++);
             items[size++] = item;
-            rsl = true;
+        } else {
+            return null;
         }
-        return rsl;
+        return items[size - 1];
     }
 
     //Find all

@@ -11,7 +11,8 @@ public class ActionCreate implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
-        if (tracker.add(item)) {
+        Item check = tracker.add(item);
+        if (check != null) {
             System.out.println(System.lineSeparator() + "Record updated." + System.lineSeparator());
         } else {
             System.out.println(System.lineSeparator()
