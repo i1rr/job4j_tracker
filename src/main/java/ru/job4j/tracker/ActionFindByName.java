@@ -2,6 +2,12 @@ package ru.job4j.tracker;
 
 public class ActionFindByName implements UserAction {
 
+    private final Output out;
+
+    public ActionFindByName(Output out) {
+        this.out = out;
+    }
+
     @Override
     public String name() {
         return ">>> Find an item by Name";
@@ -12,11 +18,11 @@ public class ActionFindByName implements UserAction {
         String name = input.askStr("Enter name: ");
         Item[] ehh = tracker.findByName(name);
         if (ehh.length == 0) {
-           System.out.println(System.lineSeparator() + "Such name doesn't exist."
+           out.println(System.lineSeparator() + "Such name doesn't exist."
                    + System.lineSeparator());
         } else {
             for (Item item : ehh) {
-                System.out.println(item);
+                out.println(item);
             }
         }
         return true;
