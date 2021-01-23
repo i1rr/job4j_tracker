@@ -58,7 +58,7 @@ public class StartUITest {
     public void whenFindAll() {
         Output out = new OutputStub();
         Output resultOut = new OutputStub();
-        resultOut.println("Item{id=1, name='Item name', created=19-01-2021}");
+        resultOut.println("Item{id=1, name='Item name', created=24-01-2021}");
         Input in = new InputStub(
                 new String[]{"0", "Item name", "1", "2"}
         );
