@@ -57,8 +57,6 @@ public class StartUITest {
     @Test
     public void whenFindAll() {
         Output out = new OutputStub();
-        Output resultOut = new OutputStub();
-        resultOut.println("Item{id=1, name='Item name', created=24-01-2021}");
         Input in = new InputStub(
                 new String[]{"0", "Item name", "1", "2"}
         );
@@ -69,6 +67,8 @@ public class StartUITest {
                 new ActionExit(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findAll(), is(resultOut));
+        assertThat(out.toString(), is(tracker.findAll()));
     }
 }
+
+//"Item{id=1, name='Item name', created=26-01-2021}"
