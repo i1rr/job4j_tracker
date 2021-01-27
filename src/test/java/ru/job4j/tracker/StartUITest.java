@@ -7,6 +7,8 @@ import static org.junit.Assert.assertThat;
 
 public class StartUITest {
 
+    private final String ln = System.lineSeparator();
+
     @Test
     public void whenCreateItem() {
         Output out = new OutputStub();
@@ -67,8 +69,77 @@ public class StartUITest {
                 new ActionExit(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is(tracker.findAll()));
+        assertThat(out.toString(), is("Menu." + ln
+                + "0. >>> Create a new Item" + ln
+                + "1. >>> Showing all items" + ln
+                + "2. >>> Exit Program" + ln
+                + "Menu." + ln
+                + "0. >>> Create a new Item" + ln
+                + "1. >>> Showing all items" + ln
+                + "2. >>> Exit Program" + ln + ln + ln
+                + "Item{id=1, name='Item name', created=27-01-2021}" + ln + ln + ln
+                + "Menu." + ln
+                + "0. >>> Create a new Item" + ln
+                + "1. >>> Showing all items" + ln
+                + "2. >>> Exit Program" + ln + "Game over" + ln)
+        );
+    }
+
+    @Test
+    public void whenFindByID() {
+        Output out = new OutputStub();
+        Input in = new InputStub(
+                new String[]{"0", "Item name", "1", "1", "2"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new ActionCreate(out),
+                new ActionFindByID(out),
+                new ActionExit(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is("Menu." + ln
+                + "0. >>> Create a new Item" + ln
+                + "1. >>> Find an item by ID" + ln
+                + "2. >>> Exit Program" + ln
+                + "Menu." + ln
+                + "0. >>> Create a new Item" + ln
+                + "1. >>> Find an item by ID" + ln
+                + "2. >>> Exit Program" + ln + ln
+                + "Item{id=1, name='Item name', created=27-01-2021}" + ln + ln
+                + "Menu." + ln
+                + "0. >>> Create a new Item" + ln
+                + "1. >>> Find an item by ID" + ln
+                + "2. >>> Exit Program" + ln + "Game over" + ln)
+        );
+    }
+
+    @Test
+    public void whenFindByName() {
+        Output out = new OutputStub();
+        Input in = new InputStub(
+                new String[]{"0", "Item name", "1", "Item name", "2"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new ActionCreate(out),
+                new ActionFindByName(out),
+                new ActionExit(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is("Menu." + ln
+                + "0. >>> Create a new Item" + ln
+                + "1. >>> Find an item by Name" + ln
+                + "2. >>> Exit Program" + ln
+                + "Menu." + ln
+                + "0. >>> Create a new Item" + ln
+                + "1. >>> Find an item by Name" + ln
+                + "2. >>> Exit Program" + ln
+                + "Item{id=1, name='Item name', created=27-01-2021}" + ln
+                + "Menu." + ln
+                + "0. >>> Create a new Item" + ln
+                + "1. >>> Find an item by Name" + ln
+                + "2. >>> Exit Program" + ln + "Game over" + ln)
+        );
     }
 }
-
-//"Item{id=1, name='Item name', created=26-01-2021}"
