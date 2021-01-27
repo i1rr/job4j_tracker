@@ -13,6 +13,12 @@ public class StartUI {
         while (run) {
             this.showMenu(actions);
             int select = input.askInt("Select: ");
+            if (select < 0 || select >= actions.length) {
+                System.out.println(System.lineSeparator()
+                        + "No such menu exists, please try again."
+                        + System.lineSeparator());
+                continue;
+            }
             UserAction action = actions[select];
             run = action.execute(input, tracker);
         }
@@ -27,7 +33,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         Output output = new OutputConsole();
-        Input input = new InputConsole();
+        Input input = new InputValidate();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new ActionCreate(output),
