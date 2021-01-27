@@ -4,18 +4,18 @@ public class InputValidate extends InputConsole {
 
     @Override
     public int askInt(String question) {
-        boolean valid = false;
+        boolean invalid = true;
         int value = -1;
-        while (!valid) {
+        do {
             try {
                 value = super.askInt(question);
-                valid = true;
+                invalid = false;
             } catch (NumberFormatException nFe) {
                 System.out.println(System.lineSeparator()
                         + "Please enter valid data"
                 + System.lineSeparator());
             }
-        }
+        } while (invalid);
         return value;
     }
 }
