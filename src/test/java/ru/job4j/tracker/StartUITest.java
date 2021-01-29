@@ -135,7 +135,7 @@ public class StartUITest {
                 + "0. >>> Create a new Item" + ln
                 + "1. >>> Find an item by Name" + ln
                 + "2. >>> Exit Program" + ln
-                + "Item{id=1, name='Item name', created=27-01-2021}" + ln
+                + "Item{id=1, name='Item name', created=29-01-2021}" + ln
                 + "Menu." + ln
                 + "0. >>> Create a new Item" + ln
                 + "1. >>> Find an item by Name" + ln
@@ -161,5 +161,50 @@ public class StartUITest {
         + "0. >>> Exit Program" + ln
         + "Game over" + ln)
         );
+    }
+
+    @Test
+    public void whenInvalidInput() {
+        Output out = new OutputStub();
+        Input in = new InputStub(
+                new String[] {"one", "1"}
+        );
+        int selected = in.askInt("Enter menu: ");
+        assertThat(selected, is(1));
+    }
+
+    @Test
+    public void whenValidInput() {
+        Output out = new OutputStub();
+        Input in = new InputStub(
+                new String[] {"1"}
+        );
+        int selected = in.askInt("Enter menu: ");
+        assertThat(selected, is(1));
+    }
+
+    @Test
+    public void whenMultipleValidInput() {
+        Output out = new OutputStub();
+        Input in = new InputStub(
+                new String[] {"1", "2", "3"}
+        );
+        for (int i = 0; i < 3; i++) {
+            int selected = in.askInt("Enter menu: ");
+            assertThat(selected, is(i + 1));
+        }
+    }
+
+    @Test
+    public void whenInputIsNegative() {
+        Output out = new OutputStub();
+
+        //Валидейт тут излишен, но просто для себя, для понимания что, как, и к чему прикручивается
+        Input in = new InputValidate(out, new InputStub(
+                new String[] {"-1"}
+        ));
+
+        int selected = in.askInt("Enter menu: ");
+        assertThat(selected, is (-1));
     }
 }
