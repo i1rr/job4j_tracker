@@ -69,6 +69,7 @@ public class StartUITest {
                 new ActionExit(out)
         };
         new StartUI(out).init(in, tracker, actions);
+        String time = tracker.findById(1).toString();
         assertThat(out.toString(), is("Menu." + ln
                 + "0. >>> Create a new Item" + ln
                 + "1. >>> Showing all items" + ln
@@ -77,7 +78,7 @@ public class StartUITest {
                 + "0. >>> Create a new Item" + ln
                 + "1. >>> Showing all items" + ln
                 + "2. >>> Exit Program" + ln + ln + ln
-                + "Item{id=1, name='Item name', created=27-01-2021}" + ln + ln + ln
+                + time + ln + ln + ln
                 + "Menu." + ln
                 + "0. >>> Create a new Item" + ln
                 + "1. >>> Showing all items" + ln
@@ -98,6 +99,7 @@ public class StartUITest {
                 new ActionExit(out)
         };
         new StartUI(out).init(in, tracker, actions);
+        String time = tracker.findById(1).toString();
         assertThat(out.toString(), is("Menu." + ln
                 + "0. >>> Create a new Item" + ln
                 + "1. >>> Find an item by ID" + ln
@@ -106,7 +108,7 @@ public class StartUITest {
                 + "0. >>> Create a new Item" + ln
                 + "1. >>> Find an item by ID" + ln
                 + "2. >>> Exit Program" + ln + ln
-                + "Item{id=1, name='Item name', created=27-01-2021}" + ln + ln
+                + time + ln + ln
                 + "Menu." + ln
                 + "0. >>> Create a new Item" + ln
                 + "1. >>> Find an item by ID" + ln
@@ -127,6 +129,7 @@ public class StartUITest {
                 new ActionExit(out)
         };
         new StartUI(out).init(in, tracker, actions);
+        String time = tracker.findById(1).toString();
         assertThat(out.toString(), is("Menu." + ln
                 + "0. >>> Create a new Item" + ln
                 + "1. >>> Find an item by Name" + ln
@@ -135,7 +138,7 @@ public class StartUITest {
                 + "0. >>> Create a new Item" + ln
                 + "1. >>> Find an item by Name" + ln
                 + "2. >>> Exit Program" + ln
-                + "Item{id=1, name='Item name', created=29-01-2021}" + ln
+                + time + ln
                 + "Menu." + ln
                 + "0. >>> Create a new Item" + ln
                 + "1. >>> Find an item by Name" + ln
@@ -154,12 +157,12 @@ public class StartUITest {
                 new ActionExit(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is (
-                        "Menu." + ln
-        + "0. >>> Exit Program" + ln
-        + "Menu." + ln
-        + "0. >>> Exit Program" + ln
-        + "Game over" + ln)
+        assertThat(out.toString(), is(
+                "Menu." + ln
+                        + "0. >>> Exit Program" + ln
+                        + "Menu." + ln
+                        + "0. >>> Exit Program" + ln
+                        + "Game over" + ln)
         );
     }
 
