@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+
 public class ActionFindAll implements UserAction {
 
     private final Output out;
@@ -15,14 +17,12 @@ public class ActionFindAll implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        Item[] ehh = tracker.findAll();
-        if (ehh.length > 0) {
+        ArrayList<Item> ehh = tracker.findAll();
             out.println(System.lineSeparator());
             for (Item eh : ehh) {
                 out.println(eh);
             }
             out.println(System.lineSeparator());
-        }
         return true;
     }
 }
