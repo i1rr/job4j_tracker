@@ -5,16 +5,14 @@ import java.util.LinkedList;
 public class PriorityQueue {
     private LinkedList<Task> tasks = new LinkedList<>();
 
-    /**
-     * Метод должен вставлять в нужную позицию элемент.
-     * Позиция определяется по полю приоритет.
-     * Для вставки использовать add(int index, E value)
-     * @param task задача
-     */
     public void put(Task task) {
         int index = 0;
         for (Task element : tasks) {
-            index = element.getPriority() >= task.getPriority() ? index : ++index;
+            if(element.getPriority() > task.getPriority()) {
+                break;
+            } else {
+                index++;
+            }
         }
         this.tasks.add(index, task);
     }
