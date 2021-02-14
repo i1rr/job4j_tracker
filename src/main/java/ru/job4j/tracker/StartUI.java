@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StartUI {
 
@@ -10,7 +11,7 @@ public class StartUI {
         this.out = out;
     }
 
-    public void init(Input input, Tracker tracker, ArrayList<UserAction> actions) {
+    public void init(Input input, Tracker tracker, List<UserAction> actions) {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
@@ -26,7 +27,7 @@ public class StartUI {
         }
     }
 
-    private void showMenu(ArrayList<UserAction> actions) {
+    private void showMenu(List<UserAction> actions) {
         out.println("Menu.");
         int index = 0;
         for(UserAction action : actions) {
@@ -39,7 +40,7 @@ public class StartUI {
         Output output = new OutputConsole();
         Input input = new InputValidate(output, new InputConsole());
         Tracker tracker = Tracker.getInstance();
-        ArrayList<UserAction> actions = new ArrayList<>();
+        List<UserAction> actions = new ArrayList<>();
         actions.add(new ActionCreate(output));
         actions.add(new ActionFindAll(output));
         actions.add(new ActionEdit(output));

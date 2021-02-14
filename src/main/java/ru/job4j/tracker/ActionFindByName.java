@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ActionFindByName implements UserAction {
 
@@ -18,7 +18,7 @@ public class ActionFindByName implements UserAction {
     @Override
     public boolean execute(Input input, Tracker tracker) {
         String name = input.askStr("Enter name: ");
-        ArrayList<Item> ehh = tracker.findByName(name);
+        List<Item> ehh = tracker.findByName(name);
         if (ehh.size() == 0) {
            out.println(System.lineSeparator() + "Such name doesn't exist."
                    + System.lineSeparator());
