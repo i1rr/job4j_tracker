@@ -50,7 +50,7 @@ public final class Tracker {
         //Find Index
         public int indexOf(int id) {
         int rsl = -1;
-            for (int i = 0; i < items.size() - 1; i++) {
+            for (int i = 0; i < items.size(); i++) {
                 if(items.get(i).getId() == id) {
                     rsl = i;
                     break;
