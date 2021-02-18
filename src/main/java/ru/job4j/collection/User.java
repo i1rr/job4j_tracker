@@ -1,19 +1,10 @@
 package ru.job4j.collection;
 
-import java.util.Comparator;
 import java.util.Objects;
 
 public class User implements Comparable<User> {
     private String name;
     private int age;
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
 
     public User(String name, int age) {
         this.name = name;
@@ -25,7 +16,6 @@ public class User implements Comparable<User> {
         if (rsl == 0) {
             return this.age > o.age ? 1 : -1;
         }
-
         return rsl;
     }
 
