@@ -12,67 +12,46 @@ public class ItemTest {
 
     @Test
     public void whenSortUp() {
-        List<Item> items = Arrays.asList(
-                new Item(2, "bbb"),
-                new Item(1, "aaa"),
-                new Item(6, "ccc")
-        );
-
-        List<Item> items2 = Arrays.asList(
-                new Item(1, "aaa"),
-                new Item(2, "bbb"),
-                new Item(6, "ccc")
-        );
+        Item item1 = new Item(1, "aaa");
+        Item item2 = new Item(2, "bbb");
+        Item item3 = new Item(3, "ccc");
+        List<Item> items = Arrays.asList(item3, item2, item1);
+        List<Item> items2 = Arrays.asList(item1, item2, item3);
         Collections.sort(items);
         assertThat(items, is(items2));
     }
 
     @Test
     public void whenSortUpByName() {
-        List<Item> items = Arrays.asList(
-                new Item(2, "bbb"),
-                new Item(1, "ccc"),
-                new Item(6, "aaa")
-        );
-
-        List<Item> items2 = Arrays.asList(
-                new Item(6, "aaa"),
-                new Item(2, "bbb"),
-                new Item(1, "ccc")
-        );
+        Item item1 = new Item(1, "aaa");
+        Item item2 = new Item(2, "bbb");
+        Item item3 = new Item(3, "ccc");
+        List<Item> items = Arrays.asList(item3, item2, item1);
+        List<Item> items2 = Arrays.asList(item1, item2, item3);
+        Collections.sort(items);
+        assertThat(items, is(items2));
         Collections.sort(items, new SortByNameItem());
         assertThat(items, is(items2));
     }
 
     @Test
     public void whenSortDown() {
-        List<Item> items = Arrays.asList(
-                new Item(2, "bbb"),
-                new Item(1, "aaa"),
-                new Item(6, "ccc")
-        );
-
-        List<Item> items2 = Arrays.asList(
-                new Item(6, "ccc"),
-                new Item(2, "bbb"),
-                new Item(1, "aaa")
-        );
+        Item item1 = new Item(1, "aaa");
+        Item item2 = new Item(2, "bbb");
+        Item item3 = new Item(3, "ccc");
+        List<Item> items = Arrays.asList(item1, item2, item3);
+        List<Item> items2 = Arrays.asList(item3, item2, item1);
         Collections.sort(items, Collections.reverseOrder());
         assertThat(items, is(items2));
     }
 
     @Test
     public void whenSortDownByName() {
-        List<Item> items = Arrays.asList(
-                new Item(2, "bbb"),
-                new Item(1, "ccc"),
-                new Item(6, "aaa")
-        );
-        List<Item> items2 = Arrays.asList(
-                new Item(1, "ccc"),
-                new Item(2, "bbb"),
-                new Item(6, "aaa")
-        );
+        Item item1 = new Item(1, "aaa");
+        Item item2 = new Item(2, "bbb");
+        Item item3 = new Item(3, "ccc");
+        List<Item> items = Arrays.asList(item3, item1, item2);
+        List<Item> items2 = Arrays.asList(item3, item2, item1);
         Collections.sort(items, Collections.reverseOrder(new SortByNameItem()));
         assertThat(items, is(items2));
     }
