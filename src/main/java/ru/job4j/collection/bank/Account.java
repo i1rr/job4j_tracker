@@ -6,7 +6,7 @@ public class Account {
     private String requisite;
     private double balance;
 
-    public Account (String requisite, double balance) {
+    public Account(String requisite, double balance) {
         this.requisite = requisite;
         this.balance = balance;
     }
@@ -29,8 +29,12 @@ public class Account {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Account account = (Account) o;
         return Objects.equals(requisite, account.requisite);
     }

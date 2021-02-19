@@ -19,9 +19,13 @@ public class Citizen {
     }
 
     @Override
-    public boolean equals (Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Citizen citizen = (Citizen) o;
         return Objects.equals(passport, citizen.passport);
     }

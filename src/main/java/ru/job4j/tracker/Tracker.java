@@ -33,8 +33,8 @@ public final class Tracker {
     //Find by name
     public List<Item> findByName(String key) {
         List<Item> temp = new ArrayList<>();
-        for(Item item : items) {
-            if(item.getName().equals(key)) {
+        for (Item item : items) {
+            if (item.getName().equals(key)) {
                 temp.add(item);
             }
         }
@@ -44,14 +44,14 @@ public final class Tracker {
         //Find by ID
         public Item findById(int id) {
         int index = indexOf(id);
-            return index != -1? items.get(index) : null;
+            return index != -1 ? items.get(index) : null;
         }
 
         //Find Index
         public int indexOf(int id) {
         int rsl = -1;
             for (int i = 0; i < items.size(); i++) {
-                if(items.get(i).getId() == id) {
+                if (items.get(i).getId() == id) {
                     rsl = i;
                     break;
                 }

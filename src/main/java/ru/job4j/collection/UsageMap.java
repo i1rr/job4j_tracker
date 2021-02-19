@@ -8,7 +8,7 @@ public class UsageMap {
         map.put("obama@whitehouse.com", "Barak Sergeevich Obama");
         map.put("vova@kreml.ru", "Vladimir Vladimirovich Putin");
 
-        for(String key : map.keySet()) {
+        for (String key : map.keySet()) {
             System.out.println(key + " : " + map.get(key));
         }
     }

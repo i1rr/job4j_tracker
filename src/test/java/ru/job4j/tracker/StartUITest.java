@@ -192,6 +192,6 @@ public class StartUITest {
         ));
 
         int selected = in.askInt("Enter menu: ");
-        assertThat(selected, is (-1));
+        assertThat(selected, is(-1));
     }
 }
