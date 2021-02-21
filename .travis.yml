@@ -4,7 +4,7 @@ jdk:
   - openjdk14
 
 # используем режим обычного пользователя для сборки проекта.
-sudo: false
+sudo: true
 
 # после выполнения сборки запустить скрипт, который будет собирать статистику по JaCoCo
 # Здесь используется сторонний сервис https://codecov.io/
@@ -22,4 +22,4 @@ notifications:
     #codecov.io - токен, после добавления репозитория
     env:
       global:
-        - CODECOV_TOKEN="7d4c8bcb-46f8-45e3-8eb0-39e9cdc7fb4c"
+        CODECOV_TOKEN="7d4c8bcb-46f8-45e3-8eb0-39e9cdc7fb4c"
