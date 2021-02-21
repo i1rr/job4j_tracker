@@ -12,7 +12,7 @@ public class StartUITest {
 
     private final String ln = System.lineSeparator();
 
-    @Test
+   @Test
     public void whenCreateItem() {
         Output out = new OutputStub();
         Input in = new InputStub(
@@ -62,7 +62,7 @@ public class StartUITest {
         Input in = new InputStub(
                 new String[]{"0", "Item name", "1", "2"}
         );
-        Tracker tracker = Tracker.newTestTracker();
+        Tracker tracker = Tracker.getInstance();
         ArrayList<UserAction> actions = new ArrayList<>();
         actions.add(new ActionCreate(out));
         actions.add(new ActionFindAll(out));
@@ -120,7 +120,7 @@ public class StartUITest {
         Input in = new InputStub(
                 new String[]{"0", "Item name", "1", "Item name", "2"}
         );
-        Tracker tracker = Tracker.newTestTracker();
+        Tracker tracker = Tracker.getInstance();
         ArrayList<UserAction> actions = new ArrayList<>();
         actions.add(new ActionCreate(out));
         actions.add(new ActionFindByName(out));
