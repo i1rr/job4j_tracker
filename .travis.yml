@@ -1,3 +1,8 @@
+#codecov.io - токен, после добавления репозитория
+env:
+  global:
+    CODECOV_TOKEN="7d4c8bcb-46f8-45e3-8eb0-39e9cdc7fb4c"
+
 # используем язык java. Travis CI поддерживает другие языки тоже.
 language: java
 jdk:
@@ -18,8 +23,3 @@ notifications:
       - i1r@tuta.io
     on_success: never # default: change
     on_failure: always # default: always
-
-    #codecov.io - токен, после добавления репозитория
-    env:
-      global:
-        CODECOV_TOKEN="7d4c8bcb-46f8-45e3-8eb0-39e9cdc7fb4c"
