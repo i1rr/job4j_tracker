@@ -3,7 +3,8 @@ package ru.job4j.collection;
 import java.util.Objects;
 
 public class Citizen {
-    private String passport, tovarisch;
+    private String passport;
+    private String tovarisch;
 
     public Citizen(String passport, String tovarisch) {
         this.passport = passport;

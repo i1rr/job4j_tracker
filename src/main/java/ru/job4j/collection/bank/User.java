@@ -3,7 +3,8 @@ package ru.job4j.collection.bank;
 import java.util.Objects;
 
 public class User {
-    private String passport, username;
+    private String passport;
+    private String username;
 
     public User(String passport, String username) {
         this.passport = passport;
