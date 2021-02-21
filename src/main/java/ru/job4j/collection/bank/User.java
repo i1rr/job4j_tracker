@@ -1,5 +1,11 @@
 package ru.job4j.collection.bank;
 
+/**
+ * Just a container for some type data
+ * with overridden equals and hashCode methods.
+ * @author i1rr
+ * @version 1.0
+ */
 import java.util.Objects;
 
 public class User {
