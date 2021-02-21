@@ -8,8 +8,6 @@ public final class Tracker {
     private final List<Item> items = new ArrayList<>();
     private int ids = 1;
 
-    private Tracker() {
-    }
 
     public static Tracker getInstance() {
         if (instance == null) {

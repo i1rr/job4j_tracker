@@ -18,7 +18,7 @@ public class StartUITest {
         Input in = new InputStub(
                 new String[]{"0", "Item name", "1"}
         );
-        Tracker tracker = Tracker.getInstance();
+        Tracker tracker = new Tracker();
         ArrayList<UserAction> actions = new ArrayList<>();
         actions.add(new ActionCreate(out));
         actions.add(new ActionExit(out));
@@ -32,7 +32,7 @@ public class StartUITest {
         Input in = new InputStub(
                 new String[]{"0", "Item name", "1", "1", "zyx", "2"}
         );
-        Tracker tracker = Tracker.getInstance();
+        Tracker tracker = new Tracker();
         ArrayList<UserAction> actions = new ArrayList<>();
         actions.add(new ActionCreate(out));
         actions.add(new ActionEdit(out));
@@ -47,7 +47,7 @@ public class StartUITest {
         Input in = new InputStub(
                 new String[]{"0", "Item name", "1", "1", "2"}
         );
-        Tracker tracker = Tracker.getInstance();
+        Tracker tracker = new Tracker();
         ArrayList<UserAction> actions = new ArrayList<>();
         actions.add(new ActionCreate(out));
         actions.add(new ActionDelete(out));
@@ -56,14 +56,13 @@ public class StartUITest {
         assertThat(tracker.findById(1), is(nullValue()));
     }
 
-    /**
     @Test
     public void whenFindAll() {
         Output out = new OutputStub();
         Input in = new InputStub(
                 new String[]{"0", "Item name", "1", "2"}
         );
-        Tracker tracker = Tracker.getInstance();
+        Tracker tracker = new Tracker();
         ArrayList<UserAction> actions = new ArrayList<>();
         actions.add(new ActionCreate(out));
         actions.add(new ActionFindAll(out));
@@ -85,7 +84,6 @@ public class StartUITest {
                 + "2. >>> Exit Program" + ln + "Game over" + ln)
         );
     }
-*/
 
     @Test
     public void whenFindByID() {
@@ -93,7 +91,7 @@ public class StartUITest {
         Input in = new InputStub(
                 new String[]{"0", "Item name", "1", "1", "2"}
         );
-        Tracker tracker = Tracker.getInstance();
+        Tracker tracker = new Tracker();
         ArrayList<UserAction> actions = new ArrayList<>();
         actions.add(new ActionCreate(out));
         actions.add(new ActionFindByID(out));
@@ -116,14 +114,13 @@ public class StartUITest {
         );
     }
 
-    /**
     @Test
     public void whenFindByName() {
         Output out = new OutputStub();
         Input in = new InputStub(
                 new String[]{"0", "Item name", "1", "Item name", "2"}
         );
-        Tracker tracker = Tracker.getInstance();
+        Tracker tracker = new Tracker();
         ArrayList<UserAction> actions = new ArrayList<>();
         actions.add(new ActionCreate(out));
         actions.add(new ActionFindByName(out));
@@ -145,7 +142,6 @@ public class StartUITest {
                 + "2. >>> Exit Program" + ln + "Game over" + ln)
         );
     }
-*/
 
     @Test
     public void whenInvalidExit() {
@@ -153,7 +149,7 @@ public class StartUITest {
         Input in = new InputStub(
                 new String[] {"1", "0"}
         );
-        Tracker tracker = Tracker.getInstance();
+        Tracker tracker = new Tracker();
         ArrayList<UserAction> actions = new ArrayList<>();
         actions.add(new ActionExit(out));
         new StartUI(out).init(in, tracker, actions);
