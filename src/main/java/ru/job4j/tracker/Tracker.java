@@ -56,7 +56,6 @@ public final class Tracker {
                     break;
                 }
             }
-            System.out.println(rsl);
             return rsl;
         }
 
