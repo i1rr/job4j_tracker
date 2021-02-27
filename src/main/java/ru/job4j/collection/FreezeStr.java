@@ -1,35 +1,35 @@
 package ru.job4j.collection;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class FreezeStr {
     public static boolean eq(String left, String right) {
-        HashMap<Integer, Character> leftHm = new HashMap<>();
-        HashMap<Integer, Character> rightHm = new HashMap<>();
-        //spread left and right Strings to hashMaps only if length is the same
-        //otherwise they can't be the same
-        if (left.length() == right.length()) {
-            for (int i = 0; i < left.length(); i++) {
-                leftHm.put(i, left.charAt(i));
-                rightHm.put(i, right.charAt(i));
-            }
-        } else {
+        Map<Character, Integer> mapa = new HashMap<>();
+        if (left.length() != right.length()) {
             return false;
-            }
-
-        //if a value of right hashmap found in left hashmap,
-        // then that value removes from left hashmap. And break.
-        for (Integer key : rightHm.keySet()) {
-            char value = rightHm.get(key);
-            for (Integer keyL : leftHm.keySet()) {
-                char valueL = leftHm.get(keyL);
-                if (value == valueL) {
-                   leftHm.remove(keyL);
-                   break;
-                }
+        }
+        for (int i = 0; i < left.length(); i++) {
+            char currentKey = left.charAt(i);
+            if (mapa.containsKey(currentKey)) {
+                mapa.put(currentKey, mapa.get(currentKey) + 1);
+            } else {
+                mapa.put(currentKey, 1);
             }
         }
-        //if left hashMap is empty then it means we have 100% match of characters
-        return leftHm.isEmpty();
+
+        for (int i = 0; i < right.length(); i++) {
+            char currentChar = right.charAt(i);
+            if (mapa.containsKey(currentChar)) {
+                if (mapa.get(currentChar) > 1) {
+                    mapa.put(currentChar, mapa.get(currentChar) - 1);
+                } else {
+                    mapa.remove(currentChar);
+                }
+            } else {
+                return false; //if current char does not exist
+            }
+        }
+        return mapa.isEmpty();
     }
 }
