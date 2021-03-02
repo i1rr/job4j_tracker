@@ -11,11 +11,10 @@ public class Departments {
             for (String el : value.split("/")) {
                 if (start.equals("")) {
                     start = el;
-                    tmp.add(start);
                 } else {
                     start = start + "/" + el;
-                    tmp.add(start);
                 }
+                tmp.add(start);
             }
         }
         return new ArrayList<>(tmp);
@@ -26,7 +25,16 @@ public class Departments {
     }
 
     public static void sortDesc(List<String> orgs) {
-        DepDescComp as = new DepDescComp();
-        orgs.sort(as.reversed());
+        orgs.sort(new DepDescComp());
     }
+
+    public static void main(String[] args) {
+        List<String> test = Arrays.asList("K2",
+                "K2/SK1");
+        sortDesc(test);
+        for (String g : test) {
+            System.out.println(g);
+        }
+    }
+
 }
