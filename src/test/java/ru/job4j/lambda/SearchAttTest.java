@@ -2,36 +2,39 @@ package ru.job4j.lambda;
 
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class SearchAttTest {
-
     @Test
-    public void whenFilterByName() {
-        List<Attachment> test = Arrays.asList(
-                new Attachment("gaz", 202),
-                new Attachment("tormoz", 99),
-                new Attachment("poluGaz", 101),
-                new Attachment("bug", 101)
+    public void whenFilterSize() {
+        List<Attachment> list = List.of(
+                new Attachment("fix", 110),
+                new Attachment("bug", 75),
+                new Attachment("bug", 90)
         );
-
-        List<Attachment> rsl = SearchAtt.filterName(test);
-        assertThat(rsl.toString(), is("[" + new Attachment("bug", 101) + "]"));
+        List<Attachment> expected = List.of(new Attachment("fix", 110));
+        Predicate<Attachment> pred = a -> a.getSize() > 100;
+        List<Attachment> rsl = SearchAtt.filter(list, pred);
+        assertThat(rsl, is(expected));
     }
 
     @Test
-    public void whenFilterBySize() {
-        List<Attachment> test = Arrays.asList(
-                new Attachment("gaz", 202),
-                new Attachment("tormoz", 99),
-                new Attachment("poluGaz", 10),
-                new Attachment("bug", 1)
+    public void whenFilterName() {
+        List<Attachment> list = List.of(
+                new Attachment("fix", 110),
+                new Attachment("bug", 75),
+                new Attachment("bug", 90)
         );
-        List<Attachment> rsl = SearchAtt.filterSize(test);
-        assertThat(rsl.toString(), is("[" + new Attachment("gaz", 202) + "]"));
+        List<Attachment> expected = List.of(
+                new Attachment("bug", 75),
+                new Attachment("bug", 90)
+        );
+        Predicate<Attachment> pred = a -> a.getName().contains("bug");
+        List<Attachment> rsl = SearchAtt.filter(list, pred);
+        assertThat(rsl, is(expected));
     }
 }
