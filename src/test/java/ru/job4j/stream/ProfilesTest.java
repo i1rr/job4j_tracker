@@ -18,7 +18,6 @@ public class ProfilesTest {
                 new Profile(china)
         );
         Profiles pro = new Profiles();
-        assertThat(pro.collect(input).toString(), is(
-                "[0/74 Napoleon st. Sydney, 19293/7 Shun dzhu. Pekin]"));
+        assertThat(pro.collect(input), is(List.of(sydney, china)));
     }
 }
