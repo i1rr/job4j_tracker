@@ -1,6 +1,9 @@
 package ru.job4j.stream;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Student {
     private int score;
@@ -18,6 +21,21 @@ public class Student {
 
     public String getSurname() {
         return surname;
+    }
+
+    public static Map<String, Student> listToMap(List<Student> students) {
+        return students.stream().distinct().collect(Collectors.toMap(
+                Student::getSurname,
+                e -> e
+        ));
+    }
+
+    @Override
+    public String toString() {
+        return "Student{"
+               + "score=" + score
+                + ", surname='" + surname + '\''
+               + '}';
     }
 
     @Override
