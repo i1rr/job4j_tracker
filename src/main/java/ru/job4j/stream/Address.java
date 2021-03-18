@@ -3,8 +3,10 @@ package ru.job4j.stream;
 import java.util.Objects;
 
 public class Address {
-    private String city, street;
-    private int building, unit;
+    private String city;
+    private String street;
+    private int building;
+    private int unit;
 
     public Address(String city, String street, int building, int unit) {
         this.city = city;
