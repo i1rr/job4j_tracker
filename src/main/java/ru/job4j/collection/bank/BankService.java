@@ -7,9 +7,9 @@ import java.util.Map;
 
 /**
  * This class gives an example of very simple bank system
- * !WARNING! DO NOT USE IT FOR REAL BANK =)
+ * !WARNING! DO NOT USE IT IN REAL BANK SYSTEMS =)
  * @author i1rr
- * @version 1.0
+ * @version 2.0
  */
 public class BankService {
     /**
@@ -46,10 +46,11 @@ public class BankService {
      * @return returns user from Collection.
      */
     public User findByPassport(String passport) {
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                return user;
-            }
+        if (passport != null) {
+            return users.keySet().stream()
+                    .filter(usr -> usr.getPassport().equals(passport))
+                    .findFirst()
+                    .orElse(null);
         }
         System.out.println("No user with such passport detected");
         return null;
@@ -64,11 +65,10 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
-            for (Account acc : users.get(user)) {
-                if (acc.getRequisite().equals(requisite)) {
-                    return acc;
-                }
-            }
+            return users.get(user).stream()
+                    .filter(acc -> acc.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
         System.out.println("This account does not exist");
         return null;
