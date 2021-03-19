@@ -24,9 +24,6 @@ public class StudentTest {
                 studs.add(vladimir);
                 studs.add(masha);
                 studs.add(fedja);
-                for (Student ss : studs) {
-                    System.out.println(ss.toString());
-                }
                 Map<String, Student> studentMap = Map.of(
                         fedja.getSurname(), fedja,
                 masha.getSurname(), masha,
