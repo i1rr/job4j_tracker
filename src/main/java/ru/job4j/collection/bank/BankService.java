@@ -46,14 +46,10 @@ public class BankService {
      * @return returns user from Collection.
      */
     public User findByPassport(String passport) {
-        if (passport != null) {
             return users.keySet().stream()
                     .filter(usr -> usr.getPassport().equals(passport))
                     .findFirst()
                     .orElse(null);
-        }
-        System.out.println("No user with such passport detected");
-        return null;
     }
 
     /**
