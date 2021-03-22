@@ -24,8 +24,8 @@ public class College {
 
     public Optional<Subject> findBySubjectName(String account, String name) {
         Optional<Student> s = findByAccount(account);
-        Set<Subject> subjects = students.get(s);
-        if (s.isPresent() && subjects != null) {
+        if (s.isPresent()) {
+            Set<Subject> subjects = students.get(s.get());
                 for (Subject subj : subjects) {
                     if (name.equals(subj.getName())) {
                         return Optional.of(subj);
