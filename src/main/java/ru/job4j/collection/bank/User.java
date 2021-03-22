@@ -1,13 +1,13 @@
 package ru.job4j.collection.bank;
 
+import java.util.Objects;
+
 /**
  * Just a container for some type data
  * with overridden equals and hashCode methods.
  * @author i1rr
  * @version 1.0
  */
-import java.util.Objects;
-
 public class User {
     private String passport;
     private String username;
@@ -31,6 +31,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return "User{"
+               + "passport='" + passport + '\''
+               + ", username='" + username + '\''
+               + '}';
     }
 
     @Override
