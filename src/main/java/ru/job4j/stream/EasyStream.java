@@ -9,7 +9,7 @@ public class EasyStream {
 
     private final List<Integer> buffer;
 
-    public EasyStream(List<Integer> buffer) {
+    private EasyStream(List<Integer> buffer) {
         this.buffer = buffer;
     }
 
